@@ -16,11 +16,19 @@
         <field name="name">event.services.view.tree</field>
         <field name="model">event.services</field>
         <field name="arch" type="xml">
-            <tree>
+                <tree string="" decoration-success="status=='Co'" decoration-danger="status=='C'">
+
                 <field name="services" />
-                <!-- <field name="date_from" />
-                <field name="date_to" /> -->
                 <field name="status" />
+                <field name="catring_total"
+                    attrs="{'invisible':[('services','!=','Cat')]}" />
+                <field name="dec_charges" attrs="{'invisible':[('services','!=','dec')]}" />
+                <field name="ph_charges" attrs="{'invisible':[('services','!=','ph')]}" />
+                <field name="staff_total" attrs="{'invisible':[('services','!=','st')]}" />
+                <field name="sub_total"/>
+                <field name="status" string="Status" readonly="True"  />
+                <!-- <button name="action_accept"  type="object" title="Accept" icon="fa-check" attrs="{'invisible':[('status','!=',False)]} "  />
+                <button name="action_refuse" type="object" title="Refuse" icon="fa-times" attrs="{'invisible':[('status','!=',False)]}"/> -->
             </tree>
         </field>
     </record>
@@ -34,18 +42,31 @@
                 <sheet>
                     <group>
                         <field name="services" />
-                        <field name="seating" />
                         <field name="vender" />
-                        <field name="menue" />
+                        <field name="days" />
+
                     </group>
                     <group>
-                        <field name="ammount" />
-                        <field name="staff_service" />
-                        <field name="staff_member"
-                            attrs="{'invisible':[('staff_service','=',False)]}" />
-                        <field name="total" />
-                        <field name="status" />
 
+                        <field name="seating" attrs="{'invisible':[('services','!=','Cat')]}" />
+                        <field name="attendee" attrs="{'invisible':[('services','!=','Cat')]}" />
+                        <field name="menue"
+                            attrs="{'invisible':[('services','!=','Cat')]}" />
+                        <field name="per_person_charges"
+                            attrs="{'invisible':[('services','!=','Cat')]}" />
+                        <field name="catring_total"
+                            attrs="{'invisible':[('services','!=','Cat')]}" />
+
+                        <field name="staff_member"
+                            attrs="{'invisible':[('services','!=','st')]}" />
+                        <field name="per_person_charges"
+                            attrs="{'invisible':[('services','!=','st')]}" />
+                        <field name="staff_total" attrs="{'invisible':[('services','!=','st')]}" />
+                    </group>
+                    <group>
+                        <field name="dec_charges" attrs="{'invisible':[('services','!=','dec')]}" />
+                        <field name="ph_charges" attrs="{'invisible':[('services','!=','ph')]}" />
+                        <field name="status" />
                     </group>
                 </sheet>
             </form>

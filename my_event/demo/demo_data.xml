@@ -2,22 +2,34 @@
 
 <odoo>
     <data noupdate="1">
-        <record id="demo_data1" model="event.org">
+        <record id="demo_event1" model="event.org">
             <field name="name">Birthaday Event</field>
-            <field name="date">2020-02-02</field>
+            <field name="custmer">Azur</field>
+            <field name="cu_m_no">#12345</field>
+            <field name="cu_m_email">test@odoo.com</field>
+            <field name="description">Invitation fot birthday</field>
             <field name="budget">1600000</field>
-            <field name="attendees">500</field>
-            <field name="venue">cafe</field>
+            <field name="other_venue">cafe</field>
+            <field name="attendees">100</field>
+            <field name="state">confirm</field>
+            <field name="start_date">2023-02-02</field>
+            <field name="end_date">2023-04-03</field>
         </record>
 
-        <record id="demo_data2" model="event.org">
-            <field name="name">Wedding Event</field>
-            <field name="date">2020-02-02</field>
+        <record id="demo_data1" model="event.org">
+            <field name="name">wedding Event</field>
+            <field name="custmer">Azur</field>
+            <field name="cu_m_no">Birthaday Event</field>
+            <field name="cu_m_email">Birthaday Event</field>
+            <field name="description">Birthaday Event</field>
             <field name="budget">1600000</field>
-            <field name="attendees">500</field>
-            <field name="venue">H</field>
+            <field name="other_venue">cafe</field>
+            <field name="attendees">100</field>
+            <field name="state">confirm</field>
+            <field name="start_date">2023-02-02</field>
+            <field name="end_date">2023-04-03</field>
         </record>
-
+        <!-- type -->
         <record id="demo_data_event_type1"
             model="event.type">
             <field name="name">wedding</field>
@@ -26,14 +38,23 @@
             id="demo_data_event_type2" model="event.type">
             <field name="name">Birthday party</field>
         </record>
-        <record
-            id="demo_data_event_type3" model="event.type">
-            <field name="name">Corporate Event</field>
+        <!-- service -->
+        <record id="demo_data_event_service"
+            model="event.services">
+            <field name="services">Catering</field>
         </record>
         <record
-            id="demo_data_property_type4" model="event.type">
-            <field name="name">Concert</field>
+            id="demo_data_event_service" model="event.services">
+            <field name="services">Decoration</field>
         </record>
-
+        <!-- venue -->
+        <record
+            id="demo_data_event_venue" model="event.venue">
+            <field name="name">Garden</field>
+        </record>
+        <record
+            id="demo_data_property_venue" model="event.venue">
+            <field name="name">Cafe</field>
+        </record>
     </data>
 </odoo>

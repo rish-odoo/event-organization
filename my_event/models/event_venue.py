@@ -4,8 +4,11 @@ from odoo import api, fields, models
 class EventVenue(models.Model):
     _name = "event.venue"
     _description = 'Venue selection'
+    _order="name"
+
     
     Event_name= fields.One2many("event.org","other_venue",string="Event Name")
+    
     name=fields.Char("name")
     garden=fields.Boolean("Garden")
     hall=fields.Boolean("Hall")
@@ -18,6 +21,7 @@ class EventVenue(models.Model):
     ven_charg_for_hotel=fields.Float("Hotel Charges",compute="_compute__hotel",readonly=False) 
     ven_charg_for_res=fields.Float("Restaurants Charges",compute="_compute__restaurants",readonly=False)
     rooms=fields.Integer("Required Rooms")
+    cost_per_day = fields.Integer("Cost per day")
     hall_capisity=fields.Integer("Hall Required")
     location=fields.Char("Address of venue")
     capisity=fields.Integer("capisity")
