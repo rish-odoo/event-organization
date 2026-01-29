@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+        <record id="demo_event1" model="event.org">
+            <field name="name">Birthaday Event</field>
+            <field name="custmer">Azur</field>
+            <field name="cu_m_no">12345</field>
+            <field name="cu_m_email">test@odoo.com</field>
+            <field name="description">Invitation fot birthday</field>
+            <field name="budget">1600000</field>
+            <field name="attendees">100</field>
+            <field name="state">Co</field>
+            <field name="start_date">2023-02-02</field>
+            <field name="end_date">2023-04-03</field>
+        </record>
+
+        <record id="demo_data1" model="event.org">
+            <field name="name">wedding Event</field>
+            <field name="custmer">Azur</field>
+            <field name="cu_m_no">0000000</field>
+            <field name="cu_m_email">test@odoo.com</field>
+            <field name="description">Birthaday Event</field>
+            <field name="budget">1600000</field>
+            <field name="attendees">100</field>
+            <field name="state">Co</field>
+            <field name="start_date">2023-02-02</field>
+            <field name="end_date">2023-04-03</field>
+        </record>
+        <!-- type -->
+        <record id="demo_data_event_type1"
+            model="event.type">
+            <field name="name">wedding</field>
+        </record>
+        <record
+            id="demo_data_event_type2" model="event.type">
+            <field name="name">Birthday party</field>
+        </record>
+        <!-- service -->
+        <record id="demo_data_event_service1"
+            model="event.services">
+            <field name="services">Cat</field>
+        </record>
+        <record
+            id="demo_data_event_service2" model="event.services">
+            <field name="services">dec</field>
+        </record>
+        <!-- venue -->
+        <record
+            id="demo_data_event_venue" model="event.venue">
+            <field name="name">Garden</field>
+        </record>
+        <record
+            id="demo_data_property_venue" model="event.venue">
+            <field name="name">Cafe</field>
+        </record>
+</odoo>

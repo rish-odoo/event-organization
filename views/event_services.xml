@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="event_services_action" model="ir.actions.act_window">
+        <field name="name">Event services</field>
+        <field name="res_model">event.services</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                There is no records for the Event services.
+            </p>
+        </field>
+    </record>
+
+    <!-- tree-->
+    <record id="event_services_view_tree" model="ir.ui.view">
+        <field name="name">event.services.view.tree</field>
+        <field name="model">event.services</field>
+        <field name="arch" type="xml">
+        <tree string="status" decoration-success="status=='Co'" decoration-danger="status=='C'">
+                <field name="services" />
+                <field name="status" />
+                <field name="catring_total" invisible="services == 'Cat'"/>
+                <field name="dec_charges" invisible = "services == 'dec'"/>
+                <field name="ph_charges" invisible = "services == 'ph'"/>
+                <field name="staff_total" invisible = "services == 'st'"/>
+                <field name="sub_total"/>
+                <field name="status" string="Status" readonly="True"  />
+        </tree>
+        </field>
+    </record>
+
+    <!--form-->
+    <record id="event_services_view_form" model="ir.ui.view">
+        <field name="name">Services</field>
+        <field name="model">event.services</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="services" />
+                        <field name="vender" />
+                        <field name="days" />
+
+                    </group>
+                    <group>
+
+                        <field name="seating" invisible="services == 'Cat'"/>
+                        <field name="attendee" invisible="services == 'Cat'"/>
+                        <field name="menue"
+                            invisible="services == 'Cat'"/>
+                        <field name="per_person_charges"
+                            invisible="services == 'Cat'"/>
+                        <field name="catring_total"
+                            invisible="services == 'Cat'"/>
+
+                        <field name="staff_member"
+                            invisible="services == 'st'" />
+                        <field name="per_person_charges"
+                            invisible="services == 'st'" />
+                        <field name="staff_total" invisible="services == 'st'" />
+                    </group>
+                    <group>
+                        <field name="dec_charges" invisible="services == 'des'" />
+                        <field name="ph_charges" invisible="services == 'ph'"/>
+                         <field name="status" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
